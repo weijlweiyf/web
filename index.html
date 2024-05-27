@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China Shopping Helper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .box {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .translate-box, .recommended-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .recommended-box a, .contact-box button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .recommended-box a:hover, .contact-box button:hover {
+            background-color: #218838;
+        }
+        .contact-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-direction: column;
+        }
+        .contact-box img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to China Shopping Helper</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="container">
+        <div class="box">
+            <h2>Translate Product</h2>
+            <div class="translate-box">
+                <input type="text" id="product-name" placeholder="Enter product name in English">
+                <button id="translate-deepl">Translate with DeepL</button>
+                <button id="translate-google">Translate with Google</button>
+            </div>
+        </div>
+        <div class="box">
+            <h2>Recommended Websites</h2>
+            <div class="recommended-box">
+                <a href="https://www.1688.com" target="_blank">1688</a>
+                <a href="https://www.pinduoduo.com" target="_blank">Pinduoduo</a>
+                <a href="https://www.taobao.com" target="_blank">Taobao</a>
+                <a href="https://www.yiwugou.com" target="_blank">Yiwu Shopping</a>
+            </div>
+        </div>
+        <div class="box">
+            <h2>Contact Information</h2>
+            <div class="contact-box">
+                <img src="image/your-whatsapp-qr-code.png" alt="WhatsApp QR Code">
+                <button onclick="window.open('https://wa.me/18082193296', '_blank')">Contact on WhatsApp</button>
+            </div>
+            <div class="contact-box">
+                <img src="image/your-whatsapp-group-qr-code.png" alt="WhatsApp Group QR Code">
+                <button onclick="window.open('https://chat.whatsapp.com/EwkXmpPubwkBBGfQCoJ57M', '_blank')">Join WhatsApp Group</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('translate-deepl').addEventListener('click', function() {
+            const productName = document.getElementById('product-name').value;
+            const deeplUrl = `https://www.deepl.com/translator#en/zh/${encodeURIComponent(productName)}`;
+            window.open(deeplUrl, '_blank');
+        });
+
+        document.getElementById('translate-google').addEventListener('click', function() {
+            const productName = document.getElementById('product-name').value;
+            const googleUrl = `https://translate.google.com/?sl=en&tl=zh-CN&text=${encodeURIComponent(productName)}&op=translate`;
+            window.open(googleUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
